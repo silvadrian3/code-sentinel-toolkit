@@ -16,6 +16,7 @@
       "description": "Pre-flight PR review agents enforcing our Code Review & Testing Standards.",
       "version": "1.1.0",
       "category": "code-review",
+      "keywords": ["pr-review", "code-review", "testing", "silent-failures", "type-safety"],
       "author": {
         "name": "Adrian Silva",
         "email": "silvadrian3@gmail.com"
