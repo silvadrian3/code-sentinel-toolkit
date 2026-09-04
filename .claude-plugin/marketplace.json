@@ -1,4 +1,5 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "code-sentinel-toolkit",
   "owner": {
     "name": "Adrian Silva",
@@ -14,6 +15,7 @@
       "source": "./plugins/code-sentinel-toolkit",
       "description": "Pre-flight PR review agents enforcing our Code Review & Testing Standards.",
       "version": "1.1.0",
+      "category": "code-review",
       "author": {
         "name": "Adrian Silva",
         "email": "silvadrian3@gmail.com"
