@@ -1,0 +1,23 @@
+{
+  "name": "code-sentinel-marketplace",
+  "owner": {
+    "name": "Adrian Silva",
+    "email": "silvadrian3@gmail.com"
+  },
+  "metadata": {
+    "description": "Internal marketplace distributing Code Sentinel pre-flight PR review tooling.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "code-sentinel-toolkit",
+      "source": "./plugins/code-sentinel-toolkit",
+      "description": "Pre-flight PR review agents enforcing our Code Review & Testing Standards.",
+      "version": "1.1.0",
+      "author": {
+        "name": "Engineering Standards",
+        "email": "eng-standards@example.com"
+      }
+    }
+  ]
+}

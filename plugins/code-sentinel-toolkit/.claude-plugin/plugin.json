@@ -1,0 +1,9 @@
+{
+  "name": "code-sentinel-toolkit",
+  "description": "Pre-flight PR review agents enforcing our Code Review & Testing Standards: silent-failure detection, test coverage, type safety, state/sync integrity, naming conventions, and PR scope/context — with a lightweight single-pass agent for small diffs so review depth scales with risk.",
+  "version": "1.1.0",
+  "author": {
+    "name": "Adrian Silva",
+    "email": "silvadrian3@gmail.com"
+  }
+}
