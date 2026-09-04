@@ -1,5 +1,5 @@
 {
-  "name": "code-sentinel-marketplace",
+  "name": "code-sentinel-toolkit",
   "owner": {
     "name": "Adrian Silva",
     "email": "silvadrian3@gmail.com"
@@ -15,8 +15,8 @@
       "description": "Pre-flight PR review agents enforcing our Code Review & Testing Standards.",
       "version": "1.1.0",
       "author": {
-        "name": "Engineering Standards",
-        "email": "eng-standards@example.com"
+        "name": "Adrian Silva",
+        "email": "silvadrian3@gmail.com"
       }
     }
   ]
