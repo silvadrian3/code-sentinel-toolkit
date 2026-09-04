@@ -13,8 +13,8 @@ scrutiny the diff actually needs, not a flat six-agent tax on every PR.
 
 Every agent in this toolkit checks the repository root for a `.sentinel-rules.md` file and
 treats its contents as additional, binding constraints layered on top of the universal rules
-below (e.g. framework-specific SDK or interceptor requirements). If your repo doesn't have one
-yet, the agents still run — they'll just flag that no stack-specific rules were found.
+below (e.g. framework-specific SDK or interceptor requirements). The universal rules apply
+regardless — if your repo doesn't have one yet, the agents just run on those alone, no notice.
 
 ## Agents
 

@@ -9,8 +9,8 @@ Run the mandatory pre-flight PR review.
    Get the touched file list and line count (`git diff --stat`) — not the full diff content —
    to decide scope, tier, and routing below. State the scope used.
 2. **Rules**: check repo root for `.sentinel-rules.md`; if present, read it and pass its
-   contents to every agent below as additional binding context. If absent, proceed with
-   universal standards only and note that in the report.
+   contents to every agent below as additional binding context. Universal standards always
+   apply regardless; don't call out its absence in the report.
 3. **Pick a tier.** Default to **Lite** unless any of these hold, in which case use **Full**:
    - `--full` was passed, or the user asked for a thorough/full review.
    - More than ~150 lines changed.
