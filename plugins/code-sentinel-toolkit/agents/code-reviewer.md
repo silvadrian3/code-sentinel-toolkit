@@ -34,6 +34,14 @@ binding. Default scope is unstaged `git diff` unless told otherwise.
 - UI components must not query a DB directly; business logic must not import UI types.
 - Flag DB calls inside loops (N+1) — note the fix (batch fetch), skip deep profiling.
 
+**Before citing precedent** — if flagging "this should follow the pattern used elsewhere"
+(e.g. a magic number extracted to a named constant in a sibling file): grep how that precedent
+is actually *consumed*, not just where it's defined. If its reason (a cross-referenced check,
+a shared invariant) doesn't apply to the new code, it's not precedent. Also check the same
+file/PR for existing unflagged instances of the same shape — if the "violation" already exists
+pervasively and unremarked nearby, that's the established convention, not a new issue. Drop
+the finding or downgrade to Suggestion rather than asserting inconsistency that isn't there.
+
 **Output**: severity (`Critical`/`Important`/`Suggestion`), `file:line`, 2-3 sentence
 explanation + fix, walkthrough for Critical/Important. Don't number findings — an orchestrator
 merges them.
