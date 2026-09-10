@@ -13,7 +13,14 @@ model: sonnet
 Enforce the Testing Pyramid and coverage rules.
 
 - **Regression tests**: if the diff looks like a bug fix, there must be a test exercising the
-  buggy path that would fail without the fix. Required, not optional.
+  buggy path that would fail without the fix. Required, not optional — unless no test
+  infrastructure anywhere in the repo can exercise that path (e.g. live-service/emulator
+  row-limit behavior) and building it would be a separate, disproportionate effort from the
+  fix itself. In that case: flag as Suggestion for follow-up test-infra work, not a blocker,
+  and say why (name what infra is missing). Check first whether identical untested paths
+  already exist unaddressed elsewhere in the same file/PR (including the original fix under
+  review) — don't single out one instance as blocking when the gap is pre-existing and
+  repo-wide.
 - **Coverage floor**: flag new business logic/utility/pure functions added without a unit test
   that would plausibly drop coverage below 80%.
 - **Layer placement**: unit tests mandatory for core logic/utilities/pure functions;
