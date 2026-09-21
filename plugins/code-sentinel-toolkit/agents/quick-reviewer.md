@@ -31,5 +31,11 @@ don't try to force a shallow verdict on something that needed the deep pass.
 
 If present, read `.sentinel-rules.md` at the repo root first and treat it as equally binding.
 
+**Confidence gate** — before reporting, score each candidate finding 0-100 confidence (likely
+false positive or pre-existing issue scores low; a clear, explicit rule violation or bug scores
+high). Only report findings scoring 80 or above.
+
 **Output**: same severity model as the specialist agents (`Critical`/`Important`/`Suggestion`),
 `file:line`, explanation + fix. Don't number findings — the caller renders the final report.
+
+Only report issues with confidence ≥ 80 (see Confidence gate above).

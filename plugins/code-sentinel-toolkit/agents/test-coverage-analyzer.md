@@ -30,10 +30,23 @@ Enforce the Testing Pyramid and coverage rules.
   changed critical flow lacks one.
 - **Success + failure paths**: new logic needs tests for both valid inputs and edge cases
   (nulls, timeouts, empty collections, boundaries) — happy-path-only coverage is a gap.
+- **Behavior vs. implementation**: for *existing* tests touched or added in the diff, check
+  whether they assert observable behavior (inputs/outputs, user-visible effects) or just
+  re-assert implementation details (internal call counts, private field values, snapshot dumps
+  of internals). A test that would fail on a correct, behavior-preserving refactor is overfit to
+  internals — flag it and suggest what behavior it should assert instead.
 
 **Rating**: 1-10 (10 = critical, must add). Missing regression tests on confirmed bug fixes
 and missing tests on critical journeys sit 8-10; missing edge-case tests on already-tested
 logic sit 3-6 depending on blast radius.
 
+The same bands apply to behavior-vs-implementation findings: a brittle, internals-overfit test
+on a critical path sits 8-10; one with lower blast radius (touched rarely, low-risk code) sits
+3-6.
+
 **Output**: rating, target file/component, specific missing test case name, behavior it should
 assert. Maps to "🧪 Test Coverage Gaps" — don't number, an orchestrator does.
+
+For a brittle-test finding, output the same shape with the test's name in place of the missing
+test case name, and the behavior it should assert instead of its current internals-only
+assertion.

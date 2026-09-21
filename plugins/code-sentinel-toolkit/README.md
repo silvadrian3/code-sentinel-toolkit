@@ -27,6 +27,12 @@ regardless — if your repo doesn't have one yet, the agents just run on those a
 | `type-design-reviewer` | Banning `any`/implicit types, explicit return types, truthiness pitfalls on numeric/string values, type invariants |
 | `state-sync-guardian` | Optimistic UI update rollbacks, cache invalidation after mutations, component lifecycle/effect cleanliness |
 | `pr-contract-checker` | PR size (~400 line guideline), regression-test presence, reviewer context (repro steps, screenshots) |
+| `comment-analyzer` | Comment accuracy, staleness, and maintainability — advisory only, never edits code |
+| `code-simplifier` | Post-review polish: simplifies already-correct code while preserving behavior exactly — runs after the review agents find no Critical/Important issues |
+
+`code-reviewer` and `quick-reviewer` score each candidate finding 0-100 confidence and only
+report findings scoring 80 or above, on top of their existing precedent/regression judgment
+checks — this filters out low-confidence noise before it reaches the report.
 
 Claude will automatically trigger the right agent based on what you're asking about:
 
@@ -36,6 +42,8 @@ Claude will automatically trigger the right agent based on what you're asking ab
 - "The like button updates instantly now, is that safe?" → `state-sync-guardian`
 - "Check naming and boundaries on this new service" → `code-reviewer`
 - "I'm ready to open this PR" → `pr-contract-checker`
+- "I added detailed docstrings to this module" → `comment-analyzer`
+- "Review agents are clean, can you tidy this up?" → `code-simplifier`
 
 Or invoke any agent explicitly by name, or run the full pre-flight review:
 

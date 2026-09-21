@@ -34,6 +34,12 @@ binding. Default scope is unstaged `git diff` unless told otherwise.
 - UI components must not query a DB directly; business logic must not import UI types.
 - Flag DB calls inside loops (N+1) — note the fix (batch fetch), skip deep profiling.
 
+**Confidence gate** — before reporting, score each candidate finding 0-100 confidence (likely
+false positive or pre-existing issue scores low; a clear, explicit rule violation or bug scores
+high). Only report findings scoring 80 or above. This is a numeric floor layered on top of the
+judgment gate below, not a replacement for it — a finding can clear 80 and still get dropped or
+downgraded by the precedent check.
+
 **Before citing precedent** — if flagging "this should follow the pattern used elsewhere"
 (e.g. a magic number extracted to a named constant in a sibling file): grep how that precedent
 is actually *consumed*, not just where it's defined. If its reason (a cross-referenced check,
@@ -45,3 +51,5 @@ the finding or downgrade to Suggestion rather than asserting inconsistency that 
 **Output**: severity (`Critical`/`Important`/`Suggestion`), `file:line`, 2-3 sentence
 explanation + fix, walkthrough for Critical/Important. Don't number findings — an orchestrator
 merges them.
+
+Only report issues with confidence ≥ 80 (see Confidence gate above).
