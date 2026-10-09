@@ -7,7 +7,7 @@ description: >
 
   Example: user says "I'm ready to create this PR" → launch this agent to confirm scope and
   context before opening it.
-model: haiku
+model: sonnet
 ---
 
 Check Author Responsibilities from the PR Contract. Don't re-review correctness, tests, types,
